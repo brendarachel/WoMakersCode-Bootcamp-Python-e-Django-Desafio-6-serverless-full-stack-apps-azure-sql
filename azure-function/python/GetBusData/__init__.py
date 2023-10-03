@@ -33,7 +33,7 @@ def main(GetBusData: func.TimerRequest) -> None:
     # reformat the bus_feed to match the format of the monitored_routes
     monitored_buses = [get_monitored_format(bus['vehicle']) for bus in entities if get_route_id(bus) in monitored_routes]
     logging.info(f"{len(entities)} buses found. {len(monitored_buses)} buses monitored.")
-    
+
     if not monitored_buses:
         logging.info("No Monitored Bus Routes Detected")
         return
@@ -41,7 +41,7 @@ def main(GetBusData: func.TimerRequest) -> None:
     geo_fences = get_geo_fences(conn, monitored_buses) or list()
     logging.info(f"{geo_fences=}")
 
-    ## Send notifications. 
+    ## Send notifications.
     for fence in geo_fences:
         logging.info(f"Vehicle {fence['VehicleId']}, route {fence['RouteId']}, status: {fence['GeoFenceStatus']} at {fence['TimestampUTC']} UTC")
         trigger_logic_app(fence, LOGIC_APP_URL)

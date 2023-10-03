@@ -1,4 +1,4 @@
-#Desafio 6 - Bootcamp Python e Django WoMakersCode - Serverless Apps Azure
+# Desafio 6 - Bootcamp Python e Django WoMakersCode - Serverless Apps Azure
 
 Repositório criado para armazenar o desafio proposto na Semana 8 sobre a criação de aplicações serverless no Azure.
 
